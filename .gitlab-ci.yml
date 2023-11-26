@@ -6,4 +6,5 @@ publish-job:
   image: node
   only: [tags]
   script:
-    - yarn publish --non-interactive _authToken=${NPM_TOKEN}
+    - export YARN_AUTH_TOKEN=${NPM_TOKEN}
+    - yarn publish --non-interactive
