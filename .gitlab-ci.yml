@@ -1,0 +1,9 @@
+stages:          # List of stages for jobs and their order of execution
+  - publish
+
+publish-job:
+  stage: publish
+  image: node
+  only: [tags]
+  script:
+    - yarn publish --non-interactive _authToken=${NPM_TOKEN}
