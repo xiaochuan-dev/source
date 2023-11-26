@@ -4,7 +4,7 @@ stages:          # List of stages for jobs and their order of execution
 publish-job:
   stage: publish
   image: node
-  only: [tags]
+  only: [tags, web]
   script:
     - export YARN_AUTH_TOKEN=${NPM_TOKEN}
     - yarn publish --non-interactive
