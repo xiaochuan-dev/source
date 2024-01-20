@@ -17,26 +17,12 @@
     function observerBatching(reactionScheduler) {
         if (!reactionScheduler) {
             reactionScheduler = defaultNoopBatch;
-            if ("production" !== process.env.NODE_ENV) {
-                console.warn("[MobX] Failed to get unstable_batched updates from react-dom / react-native");
-            }
         }
         mobx.configure({ reactionScheduler });
     }
     const isObserverBatched = () => {
-        if ("production" !== process.env.NODE_ENV) {
-            console.warn("[MobX] Deprecated");
-        }
         return true;
     };
-
-    const deprecatedMessages = [];
-    function useDeprecated(msg) {
-        if (!deprecatedMessages.includes(msg)) {
-            deprecatedMessages.push(msg);
-            console.warn(msg);
-        }
-    }
 
     function printDebugValue(v) {
         return mobx.getDependencyTree(v);
@@ -107,252 +93,6 @@
 
     var shim = {exports: {}};
 
-    var useSyncExternalStoreShim_development = {};
-
-    /**
-     * @license React
-     * use-sync-external-store-shim.development.js
-     *
-     * Copyright (c) Facebook, Inc. and its affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     */
-
-    var hasRequiredUseSyncExternalStoreShim_development;
-
-    function requireUseSyncExternalStoreShim_development () {
-    	if (hasRequiredUseSyncExternalStoreShim_development) return useSyncExternalStoreShim_development;
-    	hasRequiredUseSyncExternalStoreShim_development = 1;
-
-    	if (process.env.NODE_ENV !== "production") {
-    	  (function() {
-
-    	/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-    	if (
-    	  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' &&
-    	  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart ===
-    	    'function'
-    	) {
-    	  __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    	}
-    	          var React = require$$0;
-
-    	var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-
-    	function error(format) {
-    	  {
-    	    {
-    	      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-    	        args[_key2 - 1] = arguments[_key2];
-    	      }
-
-    	      printWarning('error', format, args);
-    	    }
-    	  }
-    	}
-
-    	function printWarning(level, format, args) {
-    	  // When changing this logic, you might want to also
-    	  // update consoleWithStackDev.www.js as well.
-    	  {
-    	    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-    	    var stack = ReactDebugCurrentFrame.getStackAddendum();
-
-    	    if (stack !== '') {
-    	      format += '%s';
-    	      args = args.concat([stack]);
-    	    } // eslint-disable-next-line react-internal/safe-string-coercion
-
-
-    	    var argsWithFormat = args.map(function (item) {
-    	      return String(item);
-    	    }); // Careful: RN currently depends on this prefix
-
-    	    argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
-    	    // breaks IE9: https://github.com/facebook/react/issues/13610
-    	    // eslint-disable-next-line react-internal/no-production-logging
-
-    	    Function.prototype.apply.call(console[level], console, argsWithFormat);
-    	  }
-    	}
-
-    	/**
-    	 * inlined Object.is polyfill to avoid requiring consumers ship their own
-    	 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-    	 */
-    	function is(x, y) {
-    	  return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
-    	  ;
-    	}
-
-    	var objectIs = typeof Object.is === 'function' ? Object.is : is;
-
-    	// dispatch for CommonJS interop named imports.
-
-    	var useState = React.useState,
-    	    useEffect = React.useEffect,
-    	    useLayoutEffect = React.useLayoutEffect,
-    	    useDebugValue = React.useDebugValue;
-    	var didWarnOld18Alpha = false;
-    	var didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
-    	// because of a very particular set of implementation details and assumptions
-    	// -- change any one of them and it will break. The most important assumption
-    	// is that updates are always synchronous, because concurrent rendering is
-    	// only available in versions of React that also have a built-in
-    	// useSyncExternalStore API. And we only use this shim when the built-in API
-    	// does not exist.
-    	//
-    	// Do not assume that the clever hacks used by this hook also work in general.
-    	// The point of this shim is to replace the need for hacks by other libraries.
-
-    	function useSyncExternalStore(subscribe, getSnapshot, // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-    	// React do not expose a way to check if we're hydrating. So users of the shim
-    	// will need to track that themselves and return the correct value
-    	// from `getSnapshot`.
-    	getServerSnapshot) {
-    	  {
-    	    if (!didWarnOld18Alpha) {
-    	      if (React.startTransition !== undefined) {
-    	        didWarnOld18Alpha = true;
-
-    	        error('You are using an outdated, pre-release alpha of React 18 that ' + 'does not support useSyncExternalStore. The ' + 'use-sync-external-store shim will not work correctly. Upgrade ' + 'to a newer pre-release.');
-    	      }
-    	    }
-    	  } // Read the current snapshot from the store on every render. Again, this
-    	  // breaks the rules of React, and only works here because of specific
-    	  // implementation details, most importantly that updates are
-    	  // always synchronous.
-
-
-    	  var value = getSnapshot();
-
-    	  {
-    	    if (!didWarnUncachedGetSnapshot) {
-    	      var cachedValue = getSnapshot();
-
-    	      if (!objectIs(value, cachedValue)) {
-    	        error('The result of getSnapshot should be cached to avoid an infinite loop');
-
-    	        didWarnUncachedGetSnapshot = true;
-    	      }
-    	    }
-    	  } // Because updates are synchronous, we don't queue them. Instead we force a
-    	  // re-render whenever the subscribed state changes by updating an some
-    	  // arbitrary useState hook. Then, during render, we call getSnapshot to read
-    	  // the current value.
-    	  //
-    	  // Because we don't actually use the state returned by the useState hook, we
-    	  // can save a bit of memory by storing other stuff in that slot.
-    	  //
-    	  // To implement the early bailout, we need to track some things on a mutable
-    	  // object. Usually, we would put that in a useRef hook, but we can stash it in
-    	  // our useState hook instead.
-    	  //
-    	  // To force a re-render, we call forceUpdate({inst}). That works because the
-    	  // new object always fails an equality check.
-
-
-    	  var _useState = useState({
-    	    inst: {
-    	      value: value,
-    	      getSnapshot: getSnapshot
-    	    }
-    	  }),
-    	      inst = _useState[0].inst,
-    	      forceUpdate = _useState[1]; // Track the latest getSnapshot function with a ref. This needs to be updated
-    	  // in the layout phase so we can access it during the tearing check that
-    	  // happens on subscribe.
-
-
-    	  useLayoutEffect(function () {
-    	    inst.value = value;
-    	    inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
-    	    // commit phase if there was an interleaved mutation. In concurrent mode
-    	    // this can happen all the time, but even in synchronous mode, an earlier
-    	    // effect may have mutated the store.
-
-    	    if (checkIfSnapshotChanged(inst)) {
-    	      // Force a re-render.
-    	      forceUpdate({
-    	        inst: inst
-    	      });
-    	    }
-    	  }, [subscribe, value, getSnapshot]);
-    	  useEffect(function () {
-    	    // Check for changes right before subscribing. Subsequent changes will be
-    	    // detected in the subscription handler.
-    	    if (checkIfSnapshotChanged(inst)) {
-    	      // Force a re-render.
-    	      forceUpdate({
-    	        inst: inst
-    	      });
-    	    }
-
-    	    var handleStoreChange = function () {
-    	      // TODO: Because there is no cross-renderer API for batching updates, it's
-    	      // up to the consumer of this library to wrap their subscription event
-    	      // with unstable_batchedUpdates. Should we try to detect when this isn't
-    	      // the case and print a warning in development?
-    	      // The store changed. Check if the snapshot changed since the last time we
-    	      // read from the store.
-    	      if (checkIfSnapshotChanged(inst)) {
-    	        // Force a re-render.
-    	        forceUpdate({
-    	          inst: inst
-    	        });
-    	      }
-    	    }; // Subscribe to the store and return a clean-up function.
-
-
-    	    return subscribe(handleStoreChange);
-    	  }, [subscribe]);
-    	  useDebugValue(value);
-    	  return value;
-    	}
-
-    	function checkIfSnapshotChanged(inst) {
-    	  var latestGetSnapshot = inst.getSnapshot;
-    	  var prevValue = inst.value;
-
-    	  try {
-    	    var nextValue = latestGetSnapshot();
-    	    return !objectIs(prevValue, nextValue);
-    	  } catch (error) {
-    	    return true;
-    	  }
-    	}
-
-    	function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
-    	  // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-    	  // React do not expose a way to check if we're hydrating. So users of the shim
-    	  // will need to track that themselves and return the correct value
-    	  // from `getSnapshot`.
-    	  return getSnapshot();
-    	}
-
-    	var canUseDOM = !!(typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined');
-
-    	var isServerEnvironment = !canUseDOM;
-
-    	var shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore;
-    	var useSyncExternalStore$2 = React.useSyncExternalStore !== undefined ? React.useSyncExternalStore : shim;
-
-    	useSyncExternalStoreShim_development.useSyncExternalStore = useSyncExternalStore$2;
-    	          /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-    	if (
-    	  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' &&
-    	  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop ===
-    	    'function'
-    	) {
-    	  __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
-    	}
-    	        
-    	  })();
-    	}
-    	return useSyncExternalStoreShim_development;
-    }
-
     var useSyncExternalStoreShim_production_min = {};
 
     /**
@@ -375,10 +115,8 @@
     	return useSyncExternalStoreShim_production_min;
     }
 
-    if (process.env.NODE_ENV === 'production') {
+    {
       shim.exports = requireUseSyncExternalStoreShim_production_min();
-    } else {
-      shim.exports = requireUseSyncExternalStoreShim_development();
     }
 
     var shimExports = shim.exports;
@@ -467,7 +205,6 @@
         return renderResult;
     }
 
-    let warnObserverOptionsDeprecated = true;
     const hasSymbol = typeof Symbol === "function" && Symbol.for;
     // Using react-is had some issues (and operates on elements, not on types), see #608 / #609
     const ReactForwardRefSymbol = hasSymbol
@@ -480,10 +217,6 @@
     function observer(baseComponent, 
     // TODO remove in next major
     options) {
-        if (process.env.NODE_ENV !== "production" && warnObserverOptionsDeprecated && options) {
-            warnObserverOptionsDeprecated = false;
-            console.warn(`[mobx-react-lite] \`observer(fn, { forwardRef: true })\` is deprecated, use \`observer(React.forwardRef(fn))\``);
-        }
         if (ReactMemoSymbol && baseComponent["$$typeof"] === ReactMemoSymbol) {
             throw new Error(`[mobx-react-lite] You are trying to use \`observer\` on a function component wrapped in either another \`observer\` or \`React.memo\`. The observer already applies 'React.memo' for you.`);
         }
@@ -527,13 +260,6 @@
         // this is in observables, which would have been tracked anyway
         observerComponent = require$$0.memo(observerComponent);
         copyStaticProperties(baseComponent, observerComponent);
-        if ("production" !== process.env.NODE_ENV) {
-            Object.defineProperty(observerComponent, "contextTypes", {
-                set() {
-                    throw new Error(`[mobx-react-lite] \`${this.displayName || this.type?.displayName || this.type?.name || "Component"}.contextTypes\` must be set before applying \`observer\`.`);
-                }
-            });
-        }
         return observerComponent;
     }
     // based on https://github.com/mridgway/hoist-non-react-statics/blob/master/src/index.js
@@ -561,40 +287,13 @@
         }
         return useObserver$1(component);
     }
-    if ("production" !== process.env.NODE_ENV) {
-        ObserverComponent.propTypes = {
-            children: ObserverPropsCheck,
-            render: ObserverPropsCheck
-        };
-    }
     ObserverComponent.displayName = "Observer";
-    function ObserverPropsCheck(props, key, componentName, location, propFullName) {
-        const extraKey = key === "children" ? "render" : "children";
-        const hasProp = typeof props[key] === "function";
-        const hasExtraProp = typeof props[extraKey] === "function";
-        if (hasProp && hasExtraProp) {
-            return new Error("MobX Observer: Do not use children and render in the same time in`" + componentName);
-        }
-        if (hasProp || hasExtraProp) {
-            return null;
-        }
-        return new Error("Invalid prop `" +
-            propFullName +
-            "` of type `" +
-            typeof props[key] +
-            "` supplied to" +
-            " `" +
-            componentName +
-            "`, expected `function`.");
-    }
 
     function useLocalObservable(initializer, annotations) {
         return require$$0.useState(() => mobx.observable(initializer(), annotations, { autoBind: true }))[0];
     }
 
     function useAsObservableSource(current) {
-        if ("production" !== process.env.NODE_ENV)
-            useDeprecated("[mobx-react-lite] 'useAsObservableSource' is deprecated, please store the values directly in an observable, for example by using 'useLocalObservable', and sync future updates using 'useEffect' when needed. See the README for examples.");
         const [res] = require$$0.useState(() => mobx.observable(current, {}, { deep: false }));
         mobx.runInAction(() => {
             Object.assign(res, current);
@@ -603,9 +302,6 @@
     }
 
     function useLocalStore(initializer, current) {
-        if ("production" !== process.env.NODE_ENV) {
-            useDeprecated("[mobx-react-lite] 'useLocalStore' is deprecated, use 'useLocalObservable' instead.");
-        }
         const source = current && useAsObservableSource(current);
         return require$$0.useState(() => mobx.observable(initializer(source), undefined, { autoBind: true }))[0];
     }
@@ -613,15 +309,9 @@
     observerBatching(reactDom.unstable_batchedUpdates);
     const clearTimers = observerFinalizationRegistry["finalizeAllImmediately"] ?? (() => { });
     function useObserver(fn, baseComponentName = "observed") {
-        if ("production" !== process.env.NODE_ENV) {
-            useDeprecated("[mobx-react-lite] 'useObserver(fn)' is deprecated. Use `<Observer>{fn}</Observer>` instead, or wrap the entire component in `observer`.");
-        }
         return useObserver$1(fn, baseComponentName);
     }
     function useStaticRendering(enable) {
-        if ("production" !== process.env.NODE_ENV) {
-            console.warn("[mobx-react-lite] 'useStaticRendering' is deprecated, use 'enableStaticRendering' instead");
-        }
         enableStaticRendering(enable);
     }
 
