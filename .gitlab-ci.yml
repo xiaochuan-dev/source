@@ -1,11 +1,12 @@
 stages:          # List of stages for jobs and their order of execution
   - publish
 
+variables:
+  NPM_AUTH_TOKEN: "${NPM_TOKEN}"
+
 publish-job:
   stage: publish
   image: node
   only: [tags, web]
-  variables:
-    NPM_AUTH_TOKEN: ${NPM_TOKEN}
   script:
     - yarn publish --non-interactive
