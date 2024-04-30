@@ -9,4 +9,5 @@ publish-job:
   image: node
   only: [tags, web]
   script:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
     - yarn publish --non-interactive
