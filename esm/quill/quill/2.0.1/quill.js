@@ -7899,159 +7899,91 @@ Toolbar.DEFAULTS = {
   }
 };
 
-// src/assets/icons/align-left.svg
-var align_left_default = "./align-left-5RII7WYO.svg";
-
-// src/assets/icons/align-center.svg
-var align_center_default = "./align-center-KQXTGOWC.svg";
-
-// src/assets/icons/align-right.svg
-var align_right_default = "./align-right-4BY2NIB2.svg";
-
-// src/assets/icons/align-justify.svg
-var align_justify_default = "./align-justify-ICORBCZG.svg";
-
-// src/assets/icons/background.svg
-var background_default = "./background-SRKNDFVY.svg";
-
-// src/assets/icons/blockquote.svg
-var blockquote_default2 = "./blockquote-B3MCMW2L.svg";
-
-// src/assets/icons/bold.svg
-var bold_default2 = "./bold-AFOFJHDH.svg";
-
-// src/assets/icons/clean.svg
-var clean_default = "./clean-OFC5JCAE.svg";
-
-// src/assets/icons/code.svg
-var code_default = "./code-74UPI3JM.svg";
-
-// src/assets/icons/color.svg
-var color_default = "./color-HWSGCL5R.svg";
-
-// src/assets/icons/direction-ltr.svg
-var direction_ltr_default = "./direction-ltr-VLP2JFYA.svg";
-
-// src/assets/icons/direction-rtl.svg
-var direction_rtl_default = "./direction-rtl-LLGDZKLX.svg";
-
-// src/assets/icons/formula.svg
-var formula_default2 = "./formula-B2YNCXIQ.svg";
-
-// src/assets/icons/header.svg
-var header_default2 = "./header-5OXEYHZ6.svg";
-
-// src/assets/icons/header-2.svg
-var header_2_default = "./header-2-R7XNDHGX.svg";
-
-// src/assets/icons/header-3.svg
-var header_3_default = "./header-3-BKMPS7YA.svg";
-
-// src/assets/icons/header-4.svg
-var header_4_default = "./header-4-LM4RNT5I.svg";
-
-// src/assets/icons/header-5.svg
-var header_5_default = "./header-5-IS34TVSL.svg";
-
-// src/assets/icons/header-6.svg
-var header_6_default = "./header-6-IMANRN5X.svg";
-
-// src/assets/icons/italic.svg
-var italic_default2 = "./italic-6QWSKCQY.svg";
-
-// src/assets/icons/image.svg
-var image_default2 = "./image-DNNT56TD.svg";
-
-// src/assets/icons/indent.svg
-var indent_default2 = "./indent-VYLC4CW5.svg";
-
-// src/assets/icons/outdent.svg
-var outdent_default = "./outdent-CN7E5RMY.svg";
-
-// src/assets/icons/link.svg
-var link_default = "./link-EP4BRSPK.svg";
-
-// src/assets/icons/list-bullet.svg
-var list_bullet_default = "./list-bullet-H2TE7M2N.svg";
-
-// src/assets/icons/list-check.svg
-var list_check_default = "./list-check-43XPS6DN.svg";
-
-// src/assets/icons/list-ordered.svg
-var list_ordered_default = "./list-ordered-BGWU4TBS.svg";
-
-// src/assets/icons/subscript.svg
-var subscript_default = "./subscript-YW66A3ME.svg";
-
-// src/assets/icons/superscript.svg
-var superscript_default = "./superscript-F2ASDCRY.svg";
-
-// src/assets/icons/strike.svg
-var strike_default2 = "./strike-4UW3LJ6O.svg";
-
-// src/assets/icons/table.svg
-var table_default2 = "./table-YL3TOCSZ.svg";
-
-// src/assets/icons/underline.svg
-var underline_default2 = "./underline-Y6FLNWGA.svg";
-
-// src/assets/icons/video.svg
-var video_default2 = "./video-XTD3CXMV.svg";
-
 // src/ui/icons.ts
+import alignLeftIcon from "./align-left-5RII7WYO.svg";
+import alignCenterIcon from "./align-center-KQXTGOWC.svg";
+import alignRightIcon from "./align-right-4BY2NIB2.svg";
+import alignJustifyIcon from "./align-justify-ICORBCZG.svg";
+import backgroundIcon from "./background-SRKNDFVY.svg";
+import blockquoteIcon from "./blockquote-B3MCMW2L.svg";
+import boldIcon from "./bold-AFOFJHDH.svg";
+import cleanIcon from "./clean-OFC5JCAE.svg";
+import codeIcon from "./code-74UPI3JM.svg";
+import colorIcon from "./color-HWSGCL5R.svg";
+import directionLeftToRightIcon from "./direction-ltr-VLP2JFYA.svg";
+import directionRightToLeftIcon from "./direction-rtl-LLGDZKLX.svg";
+import formulaIcon from "./formula-B2YNCXIQ.svg";
+import headerIcon from "./header-5OXEYHZ6.svg";
+import header2Icon from "./header-2-R7XNDHGX.svg";
+import header3Icon from "./header-3-BKMPS7YA.svg";
+import header4Icon from "./header-4-LM4RNT5I.svg";
+import header5Icon from "./header-5-IS34TVSL.svg";
+import header6Icon from "./header-6-IMANRN5X.svg";
+import italicIcon from "./italic-6QWSKCQY.svg";
+import imageIcon from "./image-DNNT56TD.svg";
+import indentIcon from "./indent-VYLC4CW5.svg";
+import outdentIcon from "./outdent-CN7E5RMY.svg";
+import linkIcon from "./link-EP4BRSPK.svg";
+import listBulletIcon from "./list-bullet-H2TE7M2N.svg";
+import listCheckIcon from "./list-check-43XPS6DN.svg";
+import listOrderedIcon from "./list-ordered-BGWU4TBS.svg";
+import subscriptIcon from "./subscript-YW66A3ME.svg";
+import superscriptIcon from "./superscript-F2ASDCRY.svg";
+import strikeIcon from "./strike-4UW3LJ6O.svg";
+import tableIcon from "./table-YL3TOCSZ.svg";
+import underlineIcon from "./underline-Y6FLNWGA.svg";
+import videoIcon from "./video-XTD3CXMV.svg";
 var icons_default = {
   align: {
-    "": align_left_default,
-    center: align_center_default,
-    right: align_right_default,
-    justify: align_justify_default
+    "": alignLeftIcon,
+    center: alignCenterIcon,
+    right: alignRightIcon,
+    justify: alignJustifyIcon
   },
-  background: background_default,
-  blockquote: blockquote_default2,
-  bold: bold_default2,
-  clean: clean_default,
-  code: code_default,
-  "code-block": code_default,
-  color: color_default,
+  background: backgroundIcon,
+  blockquote: blockquoteIcon,
+  bold: boldIcon,
+  clean: cleanIcon,
+  code: codeIcon,
+  "code-block": codeIcon,
+  color: colorIcon,
   direction: {
-    "": direction_ltr_default,
-    rtl: direction_rtl_default
+    "": directionLeftToRightIcon,
+    rtl: directionRightToLeftIcon
   },
-  formula: formula_default2,
+  formula: formulaIcon,
   header: {
-    "1": header_default2,
-    "2": header_2_default,
-    "3": header_3_default,
-    "4": header_4_default,
-    "5": header_5_default,
-    "6": header_6_default
+    "1": headerIcon,
+    "2": header2Icon,
+    "3": header3Icon,
+    "4": header4Icon,
+    "5": header5Icon,
+    "6": header6Icon
   },
-  italic: italic_default2,
-  image: image_default2,
+  italic: italicIcon,
+  image: imageIcon,
   indent: {
-    "+1": indent_default2,
-    "-1": outdent_default
+    "+1": indentIcon,
+    "-1": outdentIcon
   },
-  link: link_default,
+  link: linkIcon,
   list: {
-    bullet: list_bullet_default,
-    check: list_check_default,
-    ordered: list_ordered_default
+    bullet: listBulletIcon,
+    check: listCheckIcon,
+    ordered: listOrderedIcon
   },
   script: {
-    sub: subscript_default,
-    super: superscript_default
+    sub: subscriptIcon,
+    super: superscriptIcon
   },
-  strike: strike_default2,
-  table: table_default2,
-  underline: underline_default2,
-  video: video_default2
+  strike: strikeIcon,
+  table: tableIcon,
+  underline: underlineIcon,
+  video: videoIcon
 };
 
-// src/assets/icons/dropdown.svg
-var dropdown_default = "./dropdown-XXSR6BZN.svg";
-
 // src/ui/picker.ts
+import DropdownIcon from "./dropdown-XXSR6BZN.svg";
 var optionsCounter = 0;
 function toggleAriaAttribute(element, attribute) {
   element.setAttribute(
@@ -8125,7 +8057,7 @@ var Picker = class {
   buildLabel() {
     const label = document.createElement("span");
     label.classList.add("ql-picker-label");
-    label.innerHTML = dropdown_default;
+    label.innerHTML = DropdownIcon;
     label.tabIndex = "0";
     label.setAttribute("role", "button");
     label.setAttribute("aria-expanded", "false");

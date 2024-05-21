@@ -2287,7 +2287,7 @@ var require_lodash2 = __commonJS({
 });
 
 // src/Delta.ts
-var diff = __toESM(require_diff());
+var import_fast_diff = __toESM(require_diff());
 
 // src/AttributeMap.ts
 var cloneDeep = require_lodash();
@@ -2762,7 +2762,7 @@ var Delta = class _Delta {
       }).join("");
     });
     const retDelta = new _Delta();
-    const diffResult = diff(strings[0], strings[1], cursor, true);
+    const diffResult = (0, import_fast_diff.default)(strings[0], strings[1], cursor, true);
     const thisIter = new Iterator(this.ops);
     const otherIter = new Iterator(other.ops);
     diffResult.forEach((component) => {
@@ -2770,16 +2770,16 @@ var Delta = class _Delta {
       while (length > 0) {
         let opLength = 0;
         switch (component[0]) {
-          case diff.INSERT:
+          case import_fast_diff.default.INSERT:
             opLength = Math.min(otherIter.peekLength(), length);
             retDelta.push(otherIter.next(opLength));
             break;
-          case diff.DELETE:
+          case import_fast_diff.default.DELETE:
             opLength = Math.min(length, thisIter.peekLength());
             thisIter.next(opLength);
             retDelta.delete(opLength);
             break;
-          case diff.EQUAL:
+          case import_fast_diff.default.EQUAL:
             opLength = Math.min(
               thisIter.peekLength(),
               otherIter.peekLength(),
