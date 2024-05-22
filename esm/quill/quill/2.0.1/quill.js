@@ -7899,91 +7899,159 @@ Toolbar.DEFAULTS = {
   }
 };
 
+// src/assets/icons/align-left.svg
+var align_left_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="3" x2="15" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="3" x2="13" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="3" x2="9" y1="4" y2="4"></line>\n</svg>';
+
+// src/assets/icons/align-center.svg
+var align_center_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="14" x2="4" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="12" x2="6" y1="4" y2="4"></line>\n</svg>';
+
+// src/assets/icons/align-right.svg
+var align_right_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="15" x2="5" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="15" x2="9" y1="4" y2="4"></line>\n</svg>';
+
+// src/assets/icons/align-justify.svg
+var align_justify_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="15" x2="3" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="15" x2="3" y1="4" y2="4"></line>\n</svg>';
+
+// src/assets/icons/background.svg
+var background_default = '<svg viewbox="0 0 18 18">\n  <g class="ql-fill ql-color-label">\n    <polygon points="6 6.868 6 6 5 6 5 7 5.942 7 6 6.868"></polygon>\n    <rect height="1" width="1" x="4" y="4"></rect>\n    <polygon points="6.817 5 6 5 6 6 6.38 6 6.817 5"></polygon>\n    <rect height="1" width="1" x="2" y="6"></rect>\n    <rect height="1" width="1" x="3" y="5"></rect>\n    <rect height="1" width="1" x="4" y="7"></rect>\n    <polygon points="4 11.439 4 11 3 11 3 12 3.755 12 4 11.439"></polygon>\n    <rect height="1" width="1" x="2" y="12"></rect>\n    <rect height="1" width="1" x="2" y="9"></rect>\n    <rect height="1" width="1" x="2" y="15"></rect>\n    <polygon points="4.63 10 4 10 4 11 4.192 11 4.63 10"></polygon>\n    <rect height="1" width="1" x="3" y="8"></rect>\n    <path d="M10.832,4.2L11,4.582V4H10.708A1.948,1.948,0,0,1,10.832,4.2Z"></path>\n    <path d="M7,4.582L7.168,4.2A1.929,1.929,0,0,1,7.292,4H7V4.582Z"></path>\n    <path d="M8,13H7.683l-0.351.8a1.933,1.933,0,0,1-.124.2H8V13Z"></path>\n    <rect height="1" width="1" x="12" y="2"></rect>\n    <rect height="1" width="1" x="11" y="3"></rect>\n    <path d="M9,3H8V3.282A1.985,1.985,0,0,1,9,3Z"></path>\n    <rect height="1" width="1" x="2" y="3"></rect>\n    <rect height="1" width="1" x="6" y="2"></rect>\n    <rect height="1" width="1" x="3" y="2"></rect>\n    <rect height="1" width="1" x="5" y="3"></rect>\n    <rect height="1" width="1" x="9" y="2"></rect>\n    <rect height="1" width="1" x="15" y="14"></rect>\n    <polygon points="13.447 10.174 13.469 10.225 13.472 10.232 13.808 11 14 11 14 10 13.37 10 13.447 10.174"></polygon>\n    <rect height="1" width="1" x="13" y="7"></rect>\n    <rect height="1" width="1" x="15" y="5"></rect>\n    <rect height="1" width="1" x="14" y="6"></rect>\n    <rect height="1" width="1" x="15" y="8"></rect>\n    <rect height="1" width="1" x="14" y="9"></rect>\n    <path d="M3.775,14H3v1H4V14.314A1.97,1.97,0,0,1,3.775,14Z"></path>\n    <rect height="1" width="1" x="14" y="3"></rect>\n    <polygon points="12 6.868 12 6 11.62 6 12 6.868"></polygon>\n    <rect height="1" width="1" x="15" y="2"></rect>\n    <rect height="1" width="1" x="12" y="5"></rect>\n    <rect height="1" width="1" x="13" y="4"></rect>\n    <polygon points="12.933 9 13 9 13 8 12.495 8 12.933 9"></polygon>\n    <rect height="1" width="1" x="9" y="14"></rect>\n    <rect height="1" width="1" x="8" y="15"></rect>\n    <path d="M6,14.926V15H7V14.316A1.993,1.993,0,0,1,6,14.926Z"></path>\n    <rect height="1" width="1" x="5" y="15"></rect>\n    <path d="M10.668,13.8L10.317,13H10v1h0.792A1.947,1.947,0,0,1,10.668,13.8Z"></path>\n    <rect height="1" width="1" x="11" y="15"></rect>\n    <path d="M14.332,12.2a1.99,1.99,0,0,1,.166.8H15V12H14.245Z"></path>\n    <rect height="1" width="1" x="14" y="15"></rect>\n    <rect height="1" width="1" x="15" y="11"></rect>\n  </g>\n  <polyline class="ql-stroke" points="5.5 13 9 5 12.5 13"></polyline>\n  <line class="ql-stroke" x1="11.63" x2="6.38" y1="11" y2="11"></line>\n</svg>';
+
+// src/assets/icons/blockquote.svg
+var blockquote_default2 = '<svg viewbox="0 0 18 18">\n  <rect class="ql-fill ql-stroke" height="3" width="3" x="4" y="5"></rect>\n  <rect class="ql-fill ql-stroke" height="3" width="3" x="11" y="5"></rect>\n  <path class="ql-even ql-fill ql-stroke" d="M7,8c0,4.031-3,5-3,5"></path>\n  <path class="ql-even ql-fill ql-stroke" d="M14,8c0,4.031-3,5-3,5"></path>\n</svg>';
+
+// src/assets/icons/bold.svg
+var bold_default2 = '<svg viewbox="0 0 18 18">\n  <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path>\n  <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path>\n</svg>';
+
+// src/assets/icons/clean.svg
+var clean_default = '<svg class="" viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line>\n  <line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line>\n  <line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line>\n  <line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line>\n  <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect>\n</svg>';
+
+// src/assets/icons/code.svg
+var code_default = '<svg viewbox="0 0 18 18">\n  <polyline class="ql-even ql-stroke" points="5 7 3 9 5 11"></polyline>\n  <polyline class="ql-even ql-stroke" points="13 7 15 9 13 11"></polyline>\n  <line class="ql-stroke" x1="10" x2="8" y1="5" y2="13"></line>\n</svg>';
+
+// src/assets/icons/color.svg
+var color_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-color-label ql-stroke ql-transparent" x1="3" x2="15" y1="15" y2="15"></line>\n  <polyline class="ql-stroke" points="5.5 11 9 3 12.5 11"></polyline>\n  <line class="ql-stroke" x1="11.63" x2="6.38" y1="9" y2="9"></line>\n</svg>';
+
+// src/assets/icons/direction-ltr.svg
+var direction_ltr_default = '<svg viewbox="0 0 18 18">\n  <polygon class="ql-stroke ql-fill" points="3 11 5 9 3 7 3 11"></polygon>\n  <line class="ql-stroke ql-fill" x1="15" x2="11" y1="4" y2="4"></line>\n  <path class="ql-fill" d="M11,3a3,3,0,0,0,0,6h1V3H11Z"></path>\n  <rect class="ql-fill" height="11" width="1" x="11" y="4"></rect>\n  <rect class="ql-fill" height="11" width="1" x="13" y="4"></rect>\n</svg>';
+
+// src/assets/icons/direction-rtl.svg
+var direction_rtl_default = '<svg viewbox="0 0 18 18">\n  <polygon class="ql-stroke ql-fill" points="15 12 13 10 15 8 15 12"></polygon>\n  <line class="ql-stroke ql-fill" x1="9" x2="5" y1="4" y2="4"></line>\n  <path class="ql-fill" d="M5,3A3,3,0,0,0,5,9H6V3H5Z"></path>\n  <rect class="ql-fill" height="11" width="1" x="5" y="4"></rect>\n  <rect class="ql-fill" height="11" width="1" x="7" y="4"></rect>\n</svg>';
+
+// src/assets/icons/formula.svg
+var formula_default2 = '<svg viewbox="0 0 18 18">\n  <path class="ql-fill" d="M11.759,2.482a2.561,2.561,0,0,0-3.53.607A7.656,7.656,0,0,0,6.8,6.2C6.109,9.188,5.275,14.677,4.15,14.927a1.545,1.545,0,0,0-1.3-.933A0.922,0.922,0,0,0,2,15.036S1.954,16,4.119,16s3.091-2.691,3.7-5.553c0.177-.826.36-1.726,0.554-2.6L8.775,6.2c0.381-1.421.807-2.521,1.306-2.676a1.014,1.014,0,0,0,1.02.56A0.966,0.966,0,0,0,11.759,2.482Z"></path>\n  <rect class="ql-fill" height="1.6" rx="0.8" ry="0.8" width="5" x="5.15" y="6.2"></rect>\n  <path class="ql-fill" d="M13.663,12.027a1.662,1.662,0,0,1,.266-0.276q0.193,0.069.456,0.138a2.1,2.1,0,0,0,.535.069,1.075,1.075,0,0,0,.767-0.3,1.044,1.044,0,0,0,.314-0.8,0.84,0.84,0,0,0-.238-0.619,0.8,0.8,0,0,0-.594-0.239,1.154,1.154,0,0,0-.781.3,4.607,4.607,0,0,0-.781,1q-0.091.15-.218,0.346l-0.246.38c-0.068-.288-0.137-0.582-0.212-0.885-0.459-1.847-2.494-.984-2.941-0.8-0.482.2-.353,0.647-0.094,0.529a0.869,0.869,0,0,1,1.281.585c0.217,0.751.377,1.436,0.527,2.038a5.688,5.688,0,0,1-.362.467,2.69,2.69,0,0,1-.264.271q-0.221-.08-0.471-0.147a2.029,2.029,0,0,0-.522-0.066,1.079,1.079,0,0,0-.768.3A1.058,1.058,0,0,0,9,15.131a0.82,0.82,0,0,0,.832.852,1.134,1.134,0,0,0,.787-0.3,5.11,5.11,0,0,0,.776-0.993q0.141-.219.215-0.34c0.046-.076.122-0.194,0.223-0.346a2.786,2.786,0,0,0,.918,1.726,2.582,2.582,0,0,0,2.376-.185c0.317-.181.212-0.565,0-0.494A0.807,0.807,0,0,1,14.176,15a5.159,5.159,0,0,1-.913-2.446l0,0Q13.487,12.24,13.663,12.027Z"></path>\n</svg>';
+
+// src/assets/icons/header.svg
+var header_default2 = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M10,4V14a1,1,0,0,1-2,0V10H3v4a1,1,0,0,1-2,0V4A1,1,0,0,1,3,4V8H8V4a1,1,0,0,1,2,0Zm6.06787,9.209H14.98975V7.59863a.54085.54085,0,0,0-.605-.60547h-.62744a1.01119,1.01119,0,0,0-.748.29688L11.645,8.56641a.5435.5435,0,0,0-.022.8584l.28613.30762a.53861.53861,0,0,0,.84717.0332l.09912-.08789a1.2137,1.2137,0,0,0,.2417-.35254h.02246s-.01123.30859-.01123.60547V13.209H12.041a.54085.54085,0,0,0-.605.60547v.43945a.54085.54085,0,0,0,.605.60547h4.02686a.54085.54085,0,0,0,.605-.60547v-.43945A.54085.54085,0,0,0,16.06787,13.209Z"/>\n</svg>';
+
+// src/assets/icons/header-2.svg
+var header_2_default = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M16.73975,13.81445v.43945a.54085.54085,0,0,1-.605.60547H11.855a.58392.58392,0,0,1-.64893-.60547V14.0127c0-2.90527,3.39941-3.42187,3.39941-4.55469a.77675.77675,0,0,0-.84717-.78125,1.17684,1.17684,0,0,0-.83594.38477c-.2749.26367-.561.374-.85791.13184l-.4292-.34082c-.30811-.24219-.38525-.51758-.1543-.81445a2.97155,2.97155,0,0,1,2.45361-1.17676,2.45393,2.45393,0,0,1,2.68408,2.40918c0,2.45312-3.1792,2.92676-3.27832,3.93848h2.79443A.54085.54085,0,0,1,16.73975,13.81445ZM9,3A.99974.99974,0,0,0,8,4V8H3V4A1,1,0,0,0,1,4V14a1,1,0,0,0,2,0V10H8v4a1,1,0,0,0,2,0V4A.99974.99974,0,0,0,9,3Z"/>\n</svg>';
+
+// src/assets/icons/header-3.svg
+var header_3_default = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M16.65186,12.30664a2.6742,2.6742,0,0,1-2.915,2.68457,3.96592,3.96592,0,0,1-2.25537-.6709.56007.56007,0,0,1-.13232-.83594L11.64648,13c.209-.34082.48389-.36328.82471-.1543a2.32654,2.32654,0,0,0,1.12256.33008c.71484,0,1.12207-.35156,1.12207-.78125,0-.61523-.61621-.86816-1.46338-.86816H13.2085a.65159.65159,0,0,1-.68213-.41895l-.05518-.10937a.67114.67114,0,0,1,.14307-.78125l.71533-.86914a8.55289,8.55289,0,0,1,.68213-.7373V8.58887a3.93913,3.93913,0,0,1-.748.05469H11.9873a.54085.54085,0,0,1-.605-.60547V7.59863a.54085.54085,0,0,1,.605-.60547h3.75146a.53773.53773,0,0,1,.60547.59375v.17676a1.03723,1.03723,0,0,1-.27539.748L14.74854,10.0293A2.31132,2.31132,0,0,1,16.65186,12.30664ZM9,3A.99974.99974,0,0,0,8,4V8H3V4A1,1,0,0,0,1,4V14a1,1,0,0,0,2,0V10H8v4a1,1,0,0,0,2,0V4A.99974.99974,0,0,0,9,3Z"/>\n</svg>';
+
+// src/assets/icons/header-4.svg
+var header_4_default = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M10,4V14a1,1,0,0,1-2,0V10H3v4a1,1,0,0,1-2,0V4A1,1,0,0,1,3,4V8H8V4a1,1,0,0,1,2,0Zm7.05371,7.96582v.38477c0,.39648-.165.60547-.46191.60547h-.47314v1.29785a.54085.54085,0,0,1-.605.60547h-.69336a.54085.54085,0,0,1-.605-.60547V12.95605H11.333a.5412.5412,0,0,1-.60547-.60547v-.15332a1.199,1.199,0,0,1,.22021-.748l2.56348-4.05957a.7819.7819,0,0,1,.72607-.39648h1.27637a.54085.54085,0,0,1,.605.60547v3.7627h.33008A.54055.54055,0,0,1,17.05371,11.96582ZM14.28125,8.7207h-.022a4.18969,4.18969,0,0,1-.38525.81348l-1.188,1.80469v.02246h1.5293V9.60059A7.04058,7.04058,0,0,1,14.28125,8.7207Z"/>\n</svg>';
+
+// src/assets/icons/header-5.svg
+var header_5_default = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M16.74023,12.18555a2.75131,2.75131,0,0,1-2.91553,2.80566,3.908,3.908,0,0,1-2.25537-.68164.54809.54809,0,0,1-.13184-.8252L11.73438,13c.209-.34082.48389-.36328.8252-.1543a2.23757,2.23757,0,0,0,1.1001.33008,1.01827,1.01827,0,0,0,1.1001-.96777c0-.61621-.53906-.97949-1.25439-.97949a2.15554,2.15554,0,0,0-.64893.09961,1.15209,1.15209,0,0,1-.814.01074l-.12109-.04395a.64116.64116,0,0,1-.45117-.71484l.231-3.00391a.56666.56666,0,0,1,.62744-.583H15.541a.54085.54085,0,0,1,.605.60547v.43945a.54085.54085,0,0,1-.605.60547H13.41748l-.04395.72559a1.29306,1.29306,0,0,1-.04395.30859h.022a2.39776,2.39776,0,0,1,.57227-.07715A2.53266,2.53266,0,0,1,16.74023,12.18555ZM9,3A.99974.99974,0,0,0,8,4V8H3V4A1,1,0,0,0,1,4V14a1,1,0,0,0,2,0V10H8v4a1,1,0,0,0,2,0V4A.99974.99974,0,0,0,9,3Z"/>\n</svg>';
+
+// src/assets/icons/header-6.svg
+var header_6_default = '<svg viewBox="0 0 18 18">\n  <path class="ql-fill" d="M14.51758,9.64453a1.85627,1.85627,0,0,0-1.24316.38477H13.252a1.73532,1.73532,0,0,1,1.72754-1.4082,2.66491,2.66491,0,0,1,.5498.06641c.35254.05469.57227.01074.70508-.40723l.16406-.5166a.53393.53393,0,0,0-.373-.75977,4.83723,4.83723,0,0,0-1.17773-.14258c-2.43164,0-3.7627,2.17773-3.7627,4.43359,0,2.47559,1.60645,3.69629,3.19043,3.69629A2.70585,2.70585,0,0,0,16.96,12.19727,2.43861,2.43861,0,0,0,14.51758,9.64453Zm-.23047,3.58691c-.67187,0-1.22168-.81445-1.22168-1.45215,0-.47363.30762-.583.72559-.583.96875,0,1.27734.59375,1.27734,1.12207A.82182.82182,0,0,1,14.28711,13.23145ZM10,4V14a1,1,0,0,1-2,0V10H3v4a1,1,0,0,1-2,0V4A1,1,0,0,1,3,4V8H8V4a1,1,0,0,1,2,0Z"/>\n</svg>';
+
+// src/assets/icons/italic.svg
+var italic_default2 = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line>\n</svg>';
+
+// src/assets/icons/image.svg
+var image_default2 = '<svg viewbox="0 0 18 18">\n  <rect class="ql-stroke" height="10" width="12" x="3" y="4"></rect>\n  <circle class="ql-fill" cx="6" cy="7" r="1"></circle>\n  <polyline class="ql-even ql-fill" points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"></polyline>\n</svg>';
+
+// src/assets/icons/indent.svg
+var indent_default2 = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="3" x2="15" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="3" x2="15" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="9" x2="15" y1="9" y2="9"></line>\n  <polyline class="ql-fill ql-stroke" points="3 7 3 11 5 9 3 7"></polyline>\n</svg>';
+
+// src/assets/icons/outdent.svg
+var outdent_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="3" x2="15" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="3" x2="15" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="9" x2="15" y1="9" y2="9"></line>\n  <polyline class="ql-stroke" points="5 7 5 11 3 9 5 7"></polyline>\n</svg>';
+
+// src/assets/icons/link.svg
+var link_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line>\n  <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path>\n  <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path>\n</svg>';
+
+// src/assets/icons/list-bullet.svg
+var list_bullet_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line>\n  <line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line>\n</svg>';
+
+// src/assets/icons/list-check.svg
+var list_check_default = '<svg class="" viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="9" x2="15" y1="4" y2="4"></line>\n  <polyline class="ql-stroke" points="3 4 4 5 6 3"></polyline>\n  <line class="ql-stroke" x1="9" x2="15" y1="14" y2="14"></line>\n  <polyline class="ql-stroke" points="3 14 4 15 6 13"></polyline>\n  <line class="ql-stroke" x1="9" x2="15" y1="9" y2="9"></line>\n  <polyline class="ql-stroke" points="3 9 4 10 6 8"></polyline>\n</svg>';
+
+// src/assets/icons/list-ordered.svg
+var list_ordered_default = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line>\n  <line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line>\n  <line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line>\n  <line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line>\n  <path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path>\n  <path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path>\n  <path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path>\n</svg>';
+
+// src/assets/icons/subscript.svg
+var subscript_default = '<svg viewbox="0 0 18 18">\n  <path class="ql-fill" d="M15.5,15H13.861a3.858,3.858,0,0,0,1.914-2.975,1.8,1.8,0,0,0-1.6-1.751A1.921,1.921,0,0,0,12.021,11.7a0.50013,0.50013,0,1,0,.957.291h0a0.914,0.914,0,0,1,1.053-.725,0.81,0.81,0,0,1,.744.762c0,1.076-1.16971,1.86982-1.93971,2.43082A1.45639,1.45639,0,0,0,12,15.5a0.5,0.5,0,0,0,.5.5h3A0.5,0.5,0,0,0,15.5,15Z"/>\n  <path class="ql-fill" d="M9.65,5.241a1,1,0,0,0-1.409.108L6,7.964,3.759,5.349A1,1,0,0,0,2.192,6.59178Q2.21541,6.6213,2.241,6.649L4.684,9.5,2.241,12.35A1,1,0,0,0,3.71,13.70722q0.02557-.02768.049-0.05722L6,11.036,8.241,13.65a1,1,0,1,0,1.567-1.24277Q9.78459,12.3777,9.759,12.35L7.316,9.5,9.759,6.651A1,1,0,0,0,9.65,5.241Z"/>\n</svg>';
+
+// src/assets/icons/superscript.svg
+var superscript_default = '<svg viewbox="0 0 18 18">\n  <path class="ql-fill" d="M15.5,7H13.861a4.015,4.015,0,0,0,1.914-2.975,1.8,1.8,0,0,0-1.6-1.751A1.922,1.922,0,0,0,12.021,3.7a0.5,0.5,0,1,0,.957.291,0.917,0.917,0,0,1,1.053-.725,0.81,0.81,0,0,1,.744.762c0,1.077-1.164,1.925-1.934,2.486A1.423,1.423,0,0,0,12,7.5a0.5,0.5,0,0,0,.5.5h3A0.5,0.5,0,0,0,15.5,7Z"/>\n  <path class="ql-fill" d="M9.651,5.241a1,1,0,0,0-1.41.108L6,7.964,3.759,5.349a1,1,0,1,0-1.519,1.3L4.683,9.5,2.241,12.35a1,1,0,1,0,1.519,1.3L6,11.036,8.241,13.65a1,1,0,0,0,1.519-1.3L7.317,9.5,9.759,6.651A1,1,0,0,0,9.651,5.241Z"/>\n</svg>';
+
+// src/assets/icons/strike.svg
+var strike_default2 = '<svg viewbox="0 0 18 18">\n  <line class="ql-stroke ql-thin" x1="15.5" x2="2.5" y1="8.5" y2="9.5"></line>\n  <path class="ql-fill" d="M9.007,8C6.542,7.791,6,7.519,6,6.5,6,5.792,7.283,5,9,5c1.571,0,2.765.679,2.969,1.309a1,1,0,0,0,1.9-.617C13.356,4.106,11.354,3,9,3,6.2,3,4,4.538,4,6.5a3.2,3.2,0,0,0,.5,1.843Z"></path>\n  <path class="ql-fill" d="M8.984,10C11.457,10.208,12,10.479,12,11.5c0,0.708-1.283,1.5-3,1.5-1.571,0-2.765-.679-2.969-1.309a1,1,0,1,0-1.9.617C4.644,13.894,6.646,15,9,15c2.8,0,5-1.538,5-3.5a3.2,3.2,0,0,0-.5-1.843Z"></path>\n</svg>';
+
+// src/assets/icons/table.svg
+var table_default2 = '<svg viewbox="0 0 18 18">\n  <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect>\n  <rect class="ql-fill" height="2" width="3" x="5" y="5"></rect>\n  <rect class="ql-fill" height="2" width="4" x="9" y="5"></rect>\n  <g class="ql-fill ql-transparent">\n    <rect height="2" width="3" x="5" y="8"></rect>\n    <rect height="2" width="4" x="9" y="8"></rect>\n    <rect height="2" width="3" x="5" y="11"></rect>\n    <rect height="2" width="4" x="9" y="11"></rect>\n  </g>\n</svg>';
+
+// src/assets/icons/underline.svg
+var underline_default2 = '<svg viewbox="0 0 18 18">\n  <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path>\n  <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect>\n</svg>';
+
+// src/assets/icons/video.svg
+var video_default2 = '<svg viewbox="0 0 18 18">\n  <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect>\n  <rect class="ql-fill" height="12" width="1" x="5" y="3"></rect>\n  <rect class="ql-fill" height="12" width="1" x="12" y="3"></rect>\n  <rect class="ql-fill" height="2" width="8" x="5" y="8"></rect>\n  <rect class="ql-fill" height="1" width="3" x="3" y="5"></rect>\n  <rect class="ql-fill" height="1" width="3" x="3" y="7"></rect>\n  <rect class="ql-fill" height="1" width="3" x="3" y="10"></rect>\n  <rect class="ql-fill" height="1" width="3" x="3" y="12"></rect>\n  <rect class="ql-fill" height="1" width="3" x="12" y="5"></rect>\n  <rect class="ql-fill" height="1" width="3" x="12" y="7"></rect>\n  <rect class="ql-fill" height="1" width="3" x="12" y="10"></rect>\n  <rect class="ql-fill" height="1" width="3" x="12" y="12"></rect>\n</svg>';
+
 // src/ui/icons.ts
-import alignLeftIcon from "./align-left-5RII7WYO.svg";
-import alignCenterIcon from "./align-center-KQXTGOWC.svg";
-import alignRightIcon from "./align-right-4BY2NIB2.svg";
-import alignJustifyIcon from "./align-justify-ICORBCZG.svg";
-import backgroundIcon from "./background-SRKNDFVY.svg";
-import blockquoteIcon from "./blockquote-B3MCMW2L.svg";
-import boldIcon from "./bold-AFOFJHDH.svg";
-import cleanIcon from "./clean-OFC5JCAE.svg";
-import codeIcon from "./code-74UPI3JM.svg";
-import colorIcon from "./color-HWSGCL5R.svg";
-import directionLeftToRightIcon from "./direction-ltr-VLP2JFYA.svg";
-import directionRightToLeftIcon from "./direction-rtl-LLGDZKLX.svg";
-import formulaIcon from "./formula-B2YNCXIQ.svg";
-import headerIcon from "./header-5OXEYHZ6.svg";
-import header2Icon from "./header-2-R7XNDHGX.svg";
-import header3Icon from "./header-3-BKMPS7YA.svg";
-import header4Icon from "./header-4-LM4RNT5I.svg";
-import header5Icon from "./header-5-IS34TVSL.svg";
-import header6Icon from "./header-6-IMANRN5X.svg";
-import italicIcon from "./italic-6QWSKCQY.svg";
-import imageIcon from "./image-DNNT56TD.svg";
-import indentIcon from "./indent-VYLC4CW5.svg";
-import outdentIcon from "./outdent-CN7E5RMY.svg";
-import linkIcon from "./link-EP4BRSPK.svg";
-import listBulletIcon from "./list-bullet-H2TE7M2N.svg";
-import listCheckIcon from "./list-check-43XPS6DN.svg";
-import listOrderedIcon from "./list-ordered-BGWU4TBS.svg";
-import subscriptIcon from "./subscript-YW66A3ME.svg";
-import superscriptIcon from "./superscript-F2ASDCRY.svg";
-import strikeIcon from "./strike-4UW3LJ6O.svg";
-import tableIcon from "./table-YL3TOCSZ.svg";
-import underlineIcon from "./underline-Y6FLNWGA.svg";
-import videoIcon from "./video-XTD3CXMV.svg";
 var icons_default = {
   align: {
-    "": alignLeftIcon,
-    center: alignCenterIcon,
-    right: alignRightIcon,
-    justify: alignJustifyIcon
+    "": align_left_default,
+    center: align_center_default,
+    right: align_right_default,
+    justify: align_justify_default
   },
-  background: backgroundIcon,
-  blockquote: blockquoteIcon,
-  bold: boldIcon,
-  clean: cleanIcon,
-  code: codeIcon,
-  "code-block": codeIcon,
-  color: colorIcon,
+  background: background_default,
+  blockquote: blockquote_default2,
+  bold: bold_default2,
+  clean: clean_default,
+  code: code_default,
+  "code-block": code_default,
+  color: color_default,
   direction: {
-    "": directionLeftToRightIcon,
-    rtl: directionRightToLeftIcon
+    "": direction_ltr_default,
+    rtl: direction_rtl_default
   },
-  formula: formulaIcon,
+  formula: formula_default2,
   header: {
-    "1": headerIcon,
-    "2": header2Icon,
-    "3": header3Icon,
-    "4": header4Icon,
-    "5": header5Icon,
-    "6": header6Icon
+    "1": header_default2,
+    "2": header_2_default,
+    "3": header_3_default,
+    "4": header_4_default,
+    "5": header_5_default,
+    "6": header_6_default
   },
-  italic: italicIcon,
-  image: imageIcon,
+  italic: italic_default2,
+  image: image_default2,
   indent: {
-    "+1": indentIcon,
-    "-1": outdentIcon
+    "+1": indent_default2,
+    "-1": outdent_default
   },
-  link: linkIcon,
+  link: link_default,
   list: {
-    bullet: listBulletIcon,
-    check: listCheckIcon,
-    ordered: listOrderedIcon
+    bullet: list_bullet_default,
+    check: list_check_default,
+    ordered: list_ordered_default
   },
   script: {
-    sub: subscriptIcon,
-    super: superscriptIcon
+    sub: subscript_default,
+    super: superscript_default
   },
-  strike: strikeIcon,
-  table: tableIcon,
-  underline: underlineIcon,
-  video: videoIcon
+  strike: strike_default2,
+  table: table_default2,
+  underline: underline_default2,
+  video: video_default2
 };
 
+// src/assets/icons/dropdown.svg
+var dropdown_default = '<svg viewbox="0 0 18 18">\n  <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon>\n  <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon>\n</svg>';
+
 // src/ui/picker.ts
-import DropdownIcon from "./dropdown-XXSR6BZN.svg";
 var optionsCounter = 0;
 function toggleAriaAttribute(element, attribute) {
   element.setAttribute(
@@ -8057,7 +8125,7 @@ var Picker = class {
   buildLabel() {
     const label = document.createElement("span");
     label.classList.add("ql-picker-label");
-    label.innerHTML = DropdownIcon;
+    label.innerHTML = dropdown_default;
     label.tabIndex = "0";
     label.setAttribute("role", "button");
     label.setAttribute("aria-expanded", "false");
