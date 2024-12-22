@@ -7,6 +7,8 @@ variables:
 publish-job:
   stage: publish
   image: node
-  only: [tags, web]
+  only: [tags, web, master]
   script:
+    - npm config set registry https://registry.npmjs.org/ --local
+    - config set '//registry.npmjs.org/:_authToken' $NPM_AUTH_TOKEN
     - yarn publish --non-interactive
