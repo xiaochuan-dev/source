@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Children } from 'react';
+import * as ReactDOM from 'react-dom';
 
 const _missingExportShim = void 0;
 
@@ -1565,32 +1566,151 @@ function isArray(a) {
   return isArrayImpl(a);
 }
 
-const NoEventPriority$1 = 0;
+const ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
 
-function noop$4() {}
+const sharedNotPendingObject = {
+  pending: false,
+  data: null,
+  method: null,
+  action: null
+};
+const NotPending = Object.freeze(sharedNotPendingObject) ;
 
-function requestFormReset$2(element) {
-  throw new Error('Invalid form element. requestFormReset must be passed a form that was ' + 'rendered by React.');
+const valueStack = [];
+let fiberStack;
+
+{
+  fiberStack = [];
 }
 
-const DefaultDispatcher = {
-  f: noop$4,
-  r: requestFormReset$2,
-  D: noop$4,
-  C: noop$4,
-  L: noop$4,
-  m: noop$4,
-  X: noop$4,
-  S: noop$4,
-  M: noop$4
-};
-const Internals = {
-  d: DefaultDispatcher,
-  p: NoEventPriority$1,
-  findDOMNode: null
-};
+let index = -1;
 
-const reactDOMPackageVersion = '19.0.0-rc-0cb05427-20241220';
+function createCursor(defaultValue) {
+  return {
+    current: defaultValue
+  };
+}
+
+function pop(cursor, fiber) {
+  if (index < 0) {
+    {
+      console.error('Unexpected pop.');
+    }
+
+    return;
+  }
+
+  {
+    if (fiber !== fiberStack[index]) {
+      console.error('Unexpected Fiber popped.');
+    }
+  }
+
+  cursor.current = valueStack[index];
+  valueStack[index] = null;
+
+  {
+    fiberStack[index] = null;
+  }
+
+  index--;
+}
+
+function push(cursor, value, fiber) {
+  index++;
+  valueStack[index] = cursor.current;
+
+  {
+    fiberStack[index] = fiber;
+  }
+
+  cursor.current = value;
+}
+
+const contextStackCursor = createCursor(null);
+const contextFiberStackCursor = createCursor(null);
+const rootInstanceStackCursor = createCursor(null);
+const hostTransitionProviderCursor = createCursor(null);
+
+function requiredContext(c) {
+  {
+    if (c === null) {
+      console.error('Expected host context to exist. This error is likely caused by a bug ' + 'in React. Please file an issue.');
+    }
+  }
+
+  return c;
+}
+
+function getCurrentRootHostContainer() {
+  return rootInstanceStackCursor.current;
+}
+
+function getRootHostContainer() {
+  const rootInstance = requiredContext(rootInstanceStackCursor.current);
+  return rootInstance;
+}
+
+function getHostTransitionProvider() {
+  return hostTransitionProviderCursor.current;
+}
+
+function pushHostContainer(fiber, nextRootInstance) {
+  push(rootInstanceStackCursor, nextRootInstance, fiber);
+  push(contextFiberStackCursor, fiber, fiber);
+  push(contextStackCursor, null, fiber);
+  const nextRootContext = getRootHostContext(nextRootInstance);
+  pop(contextStackCursor, fiber);
+  push(contextStackCursor, nextRootContext, fiber);
+}
+
+function popHostContainer(fiber) {
+  pop(contextStackCursor, fiber);
+  pop(contextFiberStackCursor, fiber);
+  pop(rootInstanceStackCursor, fiber);
+}
+
+function getHostContext() {
+  const context = requiredContext(contextStackCursor.current);
+  return context;
+}
+
+function pushHostContext(fiber) {
+  {
+    const stateHook = fiber.memoizedState;
+
+    if (stateHook !== null) {
+      push(hostTransitionProviderCursor, fiber, fiber);
+    }
+  }
+
+  const context = requiredContext(contextStackCursor.current);
+  const nextContext = getChildHostContext(context, fiber.type);
+
+  if (context !== nextContext) {
+    push(contextFiberStackCursor, fiber, fiber);
+    push(contextStackCursor, nextContext, fiber);
+  }
+}
+
+function popHostContext(fiber) {
+  if (contextFiberStackCursor.current === fiber) {
+    pop(contextStackCursor, fiber);
+    pop(contextFiberStackCursor, fiber);
+  }
+
+  {
+    if (hostTransitionProviderCursor.current === fiber) {
+      pop(hostTransitionProviderCursor, fiber);
+
+      {
+        HostTransitionContext._currentValue = NotPendingTransition;
+      }
+    }
+  }
+}
+
+const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 function typeName(value) {
   {
@@ -2478,158 +2598,6 @@ function lanesToEventPriority(lanes) {
 
   return IdleEventPriority;
 }
-
-{
-  if (typeof Map !== 'function' || Map.prototype == null || typeof Map.prototype.forEach !== 'function' || typeof Set !== 'function' || Set.prototype == null || typeof Set.prototype.clear !== 'function' || typeof Set.prototype.forEach !== 'function') {
-    console.error('React depends on Map and Set built-in types. Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
-  }
-}
-
-const ReactDOMSharedInternals = Internals;
-
-const sharedNotPendingObject = {
-  pending: false,
-  data: null,
-  method: null,
-  action: null
-};
-const NotPending = Object.freeze(sharedNotPendingObject) ;
-
-const valueStack = [];
-let fiberStack;
-
-{
-  fiberStack = [];
-}
-
-let index = -1;
-
-function createCursor(defaultValue) {
-  return {
-    current: defaultValue
-  };
-}
-
-function pop(cursor, fiber) {
-  if (index < 0) {
-    {
-      console.error('Unexpected pop.');
-    }
-
-    return;
-  }
-
-  {
-    if (fiber !== fiberStack[index]) {
-      console.error('Unexpected Fiber popped.');
-    }
-  }
-
-  cursor.current = valueStack[index];
-  valueStack[index] = null;
-
-  {
-    fiberStack[index] = null;
-  }
-
-  index--;
-}
-
-function push(cursor, value, fiber) {
-  index++;
-  valueStack[index] = cursor.current;
-
-  {
-    fiberStack[index] = fiber;
-  }
-
-  cursor.current = value;
-}
-
-const contextStackCursor = createCursor(null);
-const contextFiberStackCursor = createCursor(null);
-const rootInstanceStackCursor = createCursor(null);
-const hostTransitionProviderCursor = createCursor(null);
-
-function requiredContext(c) {
-  {
-    if (c === null) {
-      console.error('Expected host context to exist. This error is likely caused by a bug ' + 'in React. Please file an issue.');
-    }
-  }
-
-  return c;
-}
-
-function getCurrentRootHostContainer() {
-  return rootInstanceStackCursor.current;
-}
-
-function getRootHostContainer() {
-  const rootInstance = requiredContext(rootInstanceStackCursor.current);
-  return rootInstance;
-}
-
-function getHostTransitionProvider() {
-  return hostTransitionProviderCursor.current;
-}
-
-function pushHostContainer(fiber, nextRootInstance) {
-  push(rootInstanceStackCursor, nextRootInstance, fiber);
-  push(contextFiberStackCursor, fiber, fiber);
-  push(contextStackCursor, null, fiber);
-  const nextRootContext = getRootHostContext(nextRootInstance);
-  pop(contextStackCursor, fiber);
-  push(contextStackCursor, nextRootContext, fiber);
-}
-
-function popHostContainer(fiber) {
-  pop(contextStackCursor, fiber);
-  pop(contextFiberStackCursor, fiber);
-  pop(rootInstanceStackCursor, fiber);
-}
-
-function getHostContext() {
-  const context = requiredContext(contextStackCursor.current);
-  return context;
-}
-
-function pushHostContext(fiber) {
-  {
-    const stateHook = fiber.memoizedState;
-
-    if (stateHook !== null) {
-      push(hostTransitionProviderCursor, fiber, fiber);
-    }
-  }
-
-  const context = requiredContext(contextStackCursor.current);
-  const nextContext = getChildHostContext(context, fiber.type);
-
-  if (context !== nextContext) {
-    push(contextFiberStackCursor, fiber, fiber);
-    push(contextStackCursor, nextContext, fiber);
-  }
-}
-
-function popHostContext(fiber) {
-  if (contextFiberStackCursor.current === fiber) {
-    pop(contextStackCursor, fiber);
-    pop(contextFiberStackCursor, fiber);
-  }
-
-  {
-    if (hostTransitionProviderCursor.current === fiber) {
-      pop(hostTransitionProviderCursor, fiber);
-
-      {
-        HostTransitionContext._currentValue = NotPendingTransition;
-      }
-    }
-  }
-}
-
-const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 function setCurrentUpdatePriority(newPriority, IntentionallyUnusedArgument) {
   ReactDOMSharedInternals.p = newPriority;
@@ -27338,6 +27306,8 @@ function propNamesListJoin(list, combinator) {
       return list.slice(0, -1).join(', ') + ', ' + combinator + ' ' + list[list.length - 1];
   }
 }
+
+const reactDOMPackageVersion = '19.0.0-rc-0cb05427-20241220';
 
 const rendererPackageName = 'react-dom';
 const SUPPRESS_HYDRATION_WARNING = 'suppressHydrationWarning';
