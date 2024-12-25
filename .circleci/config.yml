@@ -9,7 +9,8 @@ jobs:
   publish:
     executor: node-executor
     steps:
-      - run: 
+      - run:
+        name: 'publish'
         command: |
           git clone https://gitgud.io/xiaochuan/xiaochuan-source-dev.git
           cd xiaochuan-source-dev
