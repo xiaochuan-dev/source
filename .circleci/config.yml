@@ -1,0 +1,20 @@
+version: 2.1
+
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:18.20.5
+
+jobs:
+  publish:
+    executor: node-executor
+    steps:
+      - checkout
+      - run: corepack enable
+      - run: npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
+      - run: yarn publish --non-interactive
+
+workflows:
+  publish_job:
+    jobs:
+      - publish
