@@ -9,11 +9,13 @@ jobs:
   publish:
     executor: node-executor
     steps:
-      - run: git clone https://gitgud.io/xiaochuan/xiaochuan-source-dev.git
-      - run: cd xiaochuan-source-dev
-      - run: corepack enable
-      - run: npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
-      - run: yarn publish --non-interactive
+      - run: 
+        command: |
+          git clone https://gitgud.io/xiaochuan/xiaochuan-source-dev.git
+          cd xiaochuan-source-dev
+          corepack enable
+          npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
+          yarn publish --non-interactive
 
 workflows:
   publish_job:
