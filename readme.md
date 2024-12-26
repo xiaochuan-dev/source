@@ -4,8 +4,8 @@ https://registry.npmmirror.com/xiaochuan-source-dev/0.0.65/files/dist/react/19.0
 
 # 自动push镜像
 
-https://gitgud.io/xiaochuan/xiaochuan-source-dev
+https://bitbucket.org/2239559319/xiaochuan-source-dev/src/master/
 
-# circleci
+# bitbucket pipeline publish
 
-https://app.circleci.com/pipelines/circleci/G8hVf8RUXztKjVy1GtGRPL/Ezg3CCET33TyNxBjAYVhC6
+https://bitbucket.org/2239559319/xiaochuan-source-dev/pipelines
