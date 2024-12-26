@@ -8,3 +8,6 @@ pipelines:
           - node
         script:
           - node --version
+          - corepack enable
+          - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
+          - yarn publish --non-interactive
