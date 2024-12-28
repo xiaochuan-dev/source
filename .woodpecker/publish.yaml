@@ -6,10 +6,11 @@ steps:
 
     image: node:20.18.1
     commands:
-      - node --version
-      - corepack enable
-      - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN --local
-      - npm publish
+      # - node --version
+      # - corepack enable
+      # - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN --local
+      # - npm publish
+      - curl https://registry.npmjs.org/xiaochuan-source-dev
     environment:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
