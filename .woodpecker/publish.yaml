@@ -1,0 +1,9 @@
+steps:
+  - name: publish
+    image: node:20.18.1
+    commands:
+      - node --version
+      - corepack enable
+      # - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
+      # - yarn publish --non-interactive
+      - echo $NPM_TEST
