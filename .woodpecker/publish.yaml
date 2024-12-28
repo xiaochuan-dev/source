@@ -1,16 +1,15 @@
-when:
-  - branch: master
-  - event: push
-
 steps:
   - name: publish
+    when:
+      - branch: master
+      - event: push
+
     image: node:20.18.1
     commands:
       - node --version
       - corepack enable
-      # - npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN} --local
-      # - yarn publish --non-interactive
-      - echo $NPM_TOKEN
-      - echo $NPM_TOKEN > out.txt
-      - cat out.txt
-    secrets: [ NPM_TOKEN ]
+      - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN --local
+      - yarn publish --non-interactive
+    environment:
+      NPM_TOKEN:
+        from_secret: NPM_TOKEN
