@@ -3,6 +3,7 @@ steps:
     when:
       - branch: master
       - event: push
+      - path: 'package.json'
 
     image: node:20.18.1
     commands:
