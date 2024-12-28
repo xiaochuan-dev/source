@@ -9,7 +9,7 @@ steps:
       - node --version
       - corepack enable
       - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN --local
-      - yarn publish --non-interactive
+      - npm publish
     environment:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
