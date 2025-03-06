@@ -1,5 +1,6 @@
 const semver = require('semver');
-const { writeFile } = require('node:fs/promises');
+const { writeFile, readFile } = require('node:fs/promises');
+const { join } = require('node:path');
 
 async function getCurVersion() {
     const url = 'https://registry.npmjs.org/@xiaochuan-dev/source/latest';
@@ -14,7 +15,8 @@ async function start() {
 
     const newVersion = semver.inc(curVersion, 'patch');
 
-    const pkg = require('./package.json');
+
+    const pkg = JSON.parse(await readFile(join(__dirname, '../package.json')));
 
     const newPkg = {
         ...pkg,
